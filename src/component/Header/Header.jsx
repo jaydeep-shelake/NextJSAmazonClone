@@ -1,7 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import {signIn,signOut,useSession} from 'next-auth/client'
 import{MenuIcon,SearchIcon,ShoppingCartIcon} from '@heroicons/react/outline'
+import {useRouter} from 'next/router'
+import { useSelector } from 'react-redux';
+import { selectItems } from '../../slices/basketSlice';
 const Header = () => {
+    const [session]=useSession();
+     const router = useRouter();
+     const items = useSelector(selectItems);
     return (
         <header>
             {/* top nav */}
@@ -20,19 +27,20 @@ const Header = () => {
                <SearchIcon className="h-12 p-4"/>
                </div>
                <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-                   <div className="link">
-                       <p>Hello!,Jaydeep Shelake</p>
+                   <div className="link" onClick={signIn}>
+                       <p>{session?`Hello! ${session.user.name}`:'SignIn'}</p>
                        <p className="font-extrabold md:text-sm">Account&List</p>
                    </div>
                    <div className="link">
                     <p>Returns</p>
                     <p className="font-extrabold md:text-sm">& Orders</p>
                    </div>
-                   <div className="link relavtive flex items-center">
+                   <div className="link relavtive flex items-center" onClick={()=>router.push('/checkout')}>
 
-                    <ShoppingCartIcon className="h-10"/>
-                    <span className="absolute  top-0 right-0 md:right-16 top-3 h-4 w-4 bg-yellow-400 rounded-full text-center text-black font-bold">0</span>
+                   <ShoppingCartIcon className="h-10"/>
+                    <span className="absolute  top-0 right-0 md:right-16 top-3 h-4 w-4 bg-yellow-400 rounded-full text-center text-black font-bold">{items.length}</span>
                     <p className="hidden md:inline font-extrabold md:text-sm mt-2">Basket</p>
+                    
                    </div>
                </div>
             </div>
