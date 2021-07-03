@@ -27,18 +27,18 @@ const Header = () => {
                <SearchIcon className="h-12 p-4"/>
                </div>
                <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-                   <div className="link" onClick={signIn}>
+                   <div className="link cursor-pointer" onClick={signIn}>
                        <p>{session?`Hello! ${session.user.name}`:'SignIn'}</p>
                        <p className="font-extrabold md:text-sm">Account&List</p>
                    </div>
-                   <div onClick={()=>session&&router.push('/myorders')} className="link">
+                   <div onClick={()=>session&&router.push('/myorders')} className="link cursor-pointer">
                     <p>Returns</p>
-                    <p className="font-extrabold md:text-sm">& Orders</p>
+                    <p className="font-extrabold md:text-sm ">& Orders</p>
                    </div>
-                   <div className="link relavtive flex items-center" onClick={()=>router.push('/checkout')}>
+                   <div className="link cursor-pointer relavtive flex items-center" onClick={()=>router.push('/checkout')}>
 
                    <ShoppingCartIcon className="h-10"/>
-                    <span className="absolute  top-0 right-0 md:right-16 top-3 h-4 w-4 bg-yellow-400 rounded-full text-center text-black font-bold">{items.length}</span>
+                    <span className="absolute cursor-pointer top-0 right-0 md:right-16 top-3 h-4 w-4 bg-yellow-400 rounded-full text-center text-black font-bold">{items.length}</span>
                     <p className="hidden md:inline font-extrabold md:text-sm mt-2">Basket</p>
                     
                    </div>
