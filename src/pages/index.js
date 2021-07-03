@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Banner from '../component/Banner/Banner';
 import ProductFeed from '../component/Product/ProductFeed';
+import {getSession} from 'next-auth/client'
 export default function Home({products}) {
   // console.log(props)
   return (
@@ -18,13 +19,15 @@ export default function Home({products}) {
   );
 }
 export async function getServerSideProps(context){
+  const session = await getSession(context)
   const products=await fetch('https://fakestoreapi.com/products')
   .then(res=>res.json())
   //  console.log(res)
   return{
     props:
     {
-      products
+      products,
+      session
     }
   }
   }

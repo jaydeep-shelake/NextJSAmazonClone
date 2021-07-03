@@ -31,7 +31,7 @@ const Header = () => {
                        <p>{session?`Hello! ${session.user.name}`:'SignIn'}</p>
                        <p className="font-extrabold md:text-sm">Account&List</p>
                    </div>
-                   <div className="link">
+                   <div onClick={()=>session&&router.push('/myorders')} className="link">
                     <p>Returns</p>
                     <p className="font-extrabold md:text-sm">& Orders</p>
                    </div>
