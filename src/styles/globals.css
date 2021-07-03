@@ -14,8 +14,14 @@
     cursor: pointer;
     padding: 10px;
     font-size: 17px;
-    background: rgb(248, 229, 61);
+    background:#FBBF24;
     border: none;
     outline: none;
     border-radius: 6px;
+}
+.bg-amazon_blue{
+    background:#131921;
+}
+.bg-amazon_blue-light{
+    background:#232F3E;
 }
