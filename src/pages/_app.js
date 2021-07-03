@@ -8,7 +8,7 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <AuthProvider  session={pageProps.session}>
           <Head>
-          {/* <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/> */}
+          <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/>
           </Head>
     <Provider store={store}>
       {/*Header*/}
