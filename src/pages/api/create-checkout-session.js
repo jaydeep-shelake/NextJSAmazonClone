@@ -1,4 +1,4 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
+const stripe = require('stripe')('sk_test_51J6xHmSDxCal2IAd8u0Mvbl3ZJkNXTGa4Nqt5yMwweuBj9ImuMjIH3GpXlj6Q9uFaoQinvv6jbLXwWuKb3hG2Wkw00Y2dzMxyy')
 
 export default async (req,res)=>{
 const {items,email}=req.body;
@@ -23,8 +23,8 @@ const session = await stripe.checkout.sessions.create({
     },
     line_items:transformItemToStrip,
     mode:'payment',
-    success_url:`${process.env.HOST}/success`,
-    cancel_url:`${process.env.HOST}/checkout`,
+    success_url:`https://next-jsa-mazon-clone.vercel.app/success`,
+    cancel_url:`https://next-jsa-mazon-clone.vercel.app/checkout`,
     metadata:{
         email,
         images:JSON.stringify(items.map(item=>item.image))

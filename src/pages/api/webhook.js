@@ -8,8 +8,8 @@ const app = !admin.apps.length ? admin.initializeApp({
 }): admin.app();
 
 // action to stripe
-const stripe= require('stripe')(process.env.STRIPE_SECRET_KEY)
-const endpointSecrete = process.env.STRIPE_SIGNING_SECRET
+const stripe= require('stripe')('sk_test_51J6xHmSDxCal2IAd8u0Mvbl3ZJkNXTGa4Nqt5yMwweuBj9ImuMjIH3GpXlj6Q9uFaoQinvv6jbLXwWuKb3hG2Wkw00Y2dzMxyy')
+const endpointSecrete ='whsec_zEOVFm6y5ScWTUUPLTeNfPAkC9bRer3U'
 
 const fullFillOrder=async(session)=>{
     console.log('Fullfill order',session)

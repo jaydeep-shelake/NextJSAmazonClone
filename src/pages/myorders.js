@@ -53,7 +53,7 @@ export default Orders;
 // eg "Please calculate smthg and send it to the user next"
 // Here, it's executed by Node.js
 export async function getServerSideProps(context) {
-    const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+    const stripe = require("stripe")('sk_test_51J6xHmSDxCal2IAd8u0Mvbl3ZJkNXTGa4Nqt5yMwweuBj9ImuMjIH3GpXlj6Q9uFaoQinvv6jbLXwWuKb3hG2Wkw00Y2dzMxyy');
 
     // Get the user logged in credentials...
     const session = await getSession(context);
